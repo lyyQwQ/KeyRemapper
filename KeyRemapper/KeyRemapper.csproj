@@ -108,6 +108,7 @@
   <ItemGroup>
     <None Include="Directory.Build.props" Condition="Exists('Directory.Build.props')" />
     <None Include="KeyRemapper.csproj.user" Condition="Exists('KeyRemapper.csproj.user')" />
+    <None Include="$(BeatSaberDir)\Logs\_latest.log" Condition="Exists('$(BeatSaberDir)\Logs\_latest.log')" />
   </ItemGroup>
   
   <ItemGroup>
@@ -118,9 +119,8 @@
     </PackageReference>
   </ItemGroup>
   
-  <ItemGroup>    
-    <EmbeddedResource Include="manifest.json" />    
-    <EmbeddedResource Include="UI\Views\keyRemapperSettings.bsml" />    
-    <EmbeddedResource Include="UI\Views\bindingRow.bsml" />  
+  <ItemGroup>
+    <EmbeddedResource Include="manifest.json" />
+    <EmbeddedResource Include="UI\Views\SettingsView.bsml" />
   </ItemGroup>
 </Project>

@@ -79,14 +79,6 @@ internal class ActionBinding
         Changed(); // 触发保存
     }
 
-    public virtual void SetBindings(IEnumerable<ControllerButton> bindings)
-    {
-        BindingsInternal.Clear();
-        foreach (var binding in bindings)
-            BindingsInternal.Add(binding);
-        Changed(); // 触发保存
-    }
-
     public bool Contains(ControllerButton binding)
     {
         return BindingsInternal.Contains(binding);

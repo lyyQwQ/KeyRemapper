@@ -1,6 +1,5 @@
 ﻿using KeyRemapper.UI;
-using KeyRemapper.UI.FlowCoordinators;
-using KeyRemapper.UI.ViewControllers;
+using KeyRemapper.UI.BindingTabs;
 using Zenject;
 
 namespace KeyRemapper.Installers;
@@ -10,8 +9,9 @@ public class MenuBindingsInstaller : Installer
     public override void InstallBindings()
     {
         // 绑定 UI 组件
-        Container.BindInterfacesTo<MenuButtonManager>().AsSingle();
-        Container.BindInterfacesAndSelfTo<SettingsFlow>().FromNewComponentOnNewGameObject().AsSingle();
-        Container.BindInterfacesAndSelfTo<ModSettingsController>().FromNewComponentAsViewController().AsSingle();
+        Container.BindInterfacesAndSelfTo<MenuFlowCoordinator>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
+        Container.BindInterfacesAndSelfTo<SettingsViewController>().FromNewComponentAsViewController().AsSingle();
+        Container.BindInterfacesAndSelfTo<PauseTab>().AsSingle().WhenInjectedInto<SettingsViewController>();
+        Container.BindInterfacesAndSelfTo<RestartTab>().AsSingle().WhenInjectedInto<SettingsViewController>();
     }
 }
