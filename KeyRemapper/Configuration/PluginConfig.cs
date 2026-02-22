@@ -12,12 +12,13 @@ namespace KeyRemapper.Configuration;
 internal class PluginConfig
 {
     private static PluginConfig? _instance;
-    public static PluginConfig Instance => _instance!;
 
-    public static void Initialize(IPA.Config.Config conf)
+    public static PluginConfig Initialize(IPA.Config.Config conf)
     {
-        if (_instance != null) return;
+        if (_instance != null) return _instance;
+        // 生成或加载设置文件 → 存到静态 _instance
         _instance = conf.Generated<PluginConfig>();
+        return _instance;
     }
 
     public virtual int Version { get; protected set; } = 2;
@@ -53,7 +54,7 @@ internal class ActionBinding
     [SerializedName("Bindings")]
     protected virtual HashSet<ControllerButton> BindingsInternal { get; set; } = [];
 
-    public virtual bool Enabled { get; set; } = false;
+    public virtual bool Enabled { get; set; } = true;
 
     //创建只读防止外部修改
     //并防止设置重载时发生并发修改 （取决于 BSIPA 是否会生成新集合实例）

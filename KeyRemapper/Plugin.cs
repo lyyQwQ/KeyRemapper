@@ -16,12 +16,10 @@ namespace KeyRemapper
         public Plugin(IPALogger logger, IPA.Config.Config conf, Zenjector zenjector)
         {
             Log = logger;
-            // 生成或加载 cfg → 存到静态 Instance
-            PluginConfig.Initialize(conf);
+            var config = PluginConfig.Initialize(conf);
             logger.Debug("Config loaded.");
-            zenjector.Install<AppInstaller>(Location.App, PluginConfig.Instance);
+            zenjector.Install<AppInstaller>(Location.App, config);
             zenjector.Install<GameplayInstaller>(Location.Player);
-            // 先不显示界面
             zenjector.Install<MenuBindingsInstaller>(Location.Menu);
             zenjector.UseLogger(logger);
             Log.Info("KeyRemapper initialized.");
