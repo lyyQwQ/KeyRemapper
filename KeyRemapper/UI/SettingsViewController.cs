@@ -11,9 +11,21 @@ internal class SettingsViewController : BSMLAutomaticViewController
 {
     [Inject]
     [UIValue("PauseTab")]
-    public PauseTab PauseTab { get; private set; } = null!;
+    private readonly PauseTab PauseTab = null!;
 
     [Inject]
     [UIValue("RestartTab")]
-    public RestartTab RestartTab { get; private set; } = null!;
+    private readonly RestartTab RestartTab = null!;
+
+    protected override void DidActivate(bool firstActivation, bool addedToHierarchy, bool screenSystemEnabling)
+    {
+        if (firstActivation)
+        {
+            // 延迟加载子视图
+            PauseTab.CreateView(transform);
+            RestartTab.CreateView(transform);
+        }
+
+        base.DidActivate(firstActivation, addedToHierarchy, screenSystemEnabling);
+    }
 }

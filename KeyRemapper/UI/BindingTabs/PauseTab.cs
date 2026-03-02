@@ -9,6 +9,8 @@ internal class PauseTab : BindingTabBase
 
     protected override ActionBinding Action => PauseAction;
 
+    public override bool ShowBlockBuiltIn => true;
+
     [UIValue("BlockBuiltIn")]
     public bool BlockBuiltIn
     {

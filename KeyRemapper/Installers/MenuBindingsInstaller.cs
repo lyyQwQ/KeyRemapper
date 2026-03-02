@@ -11,7 +11,9 @@ public class MenuBindingsInstaller : Installer
         // 绑定 UI 组件
         Container.BindInterfacesAndSelfTo<MenuFlowCoordinator>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
         Container.BindInterfacesAndSelfTo<SettingsViewController>().FromNewComponentAsViewController().AsSingle();
-        Container.BindInterfacesAndSelfTo<PauseTab>().AsSingle().WhenInjectedInto<SettingsViewController>();
-        Container.BindInterfacesAndSelfTo<RestartTab>().AsSingle().WhenInjectedInto<SettingsViewController>();
+        Container.BindInterfacesAndSelfTo<PauseTab>().FromNewComponentOnNewGameObject().AsSingle()
+            .WhenInjectedInto<SettingsViewController>();
+        Container.BindInterfacesAndSelfTo<RestartTab>().FromNewComponentOnNewGameObject().AsSingle()
+            .WhenInjectedInto<SettingsViewController>();
     }
 }

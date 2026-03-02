@@ -4,75 +4,12 @@
   <tab-selector tab-tag='tabs' />
   <tab tags="tabs" tab-name="Pause">
     <macro.as-host host="PauseTab">
-      <vertical child-control-height="false" child-control-width="false" vertical-fit="PreferredSize" pivot-y="1"
-                spacing="2" child-align="UpperCenter">
-        <horizontal horizontal-fit="PreferredSize" spacing="2">
-          <vertical pad-right="7">
-            <text text="Current Bindings" italics="true" align="Center" font-size="5" />
-            <vertical bg="round-rect-panel" pad="2" pad-right="1" pref-width="45">
-              <horizontal ignore-layout="true" active="~NoBindings">
-                <text text="No bindings yet!" align="Center" italics="true" />
-              </horizontal>
-              <custom-list id="BindingTable" data="Bindings" show-scrollbar="true" clickable-cells="false"
-                           visible-cells="5">
-                <horizontal spacing="2" pad-left="1" child-expand-width="true">
-                  <horizontal spacing="2" min-width="15" horizontal-fit="MinSize" pivot-x="0">
-                    <text text="~Button" align="MidlineLeft" italics="true" />
-                  </horizontal>
-                  <button text="Delete" on-click="DeleteBinding" />
-                </horizontal>
-              </custom-list>
-            </vertical>
-          </vertical>
-          <vertical child-control-height="false" child-expand-height="false" spacing="1.5" pref-width="50">
-            <bool-setting text="Enable" value="Enable" apply-on-change="true" />
-            <bool-setting text="Block Built-in" value="BlockBuiltIn" apply-on-change="true" />
-          </vertical>
-        </horizontal>
-        <horizontal horizontal-fit="PreferredSize">
-          <horizontal active="~CanAddBinding" horizontal-fit="PreferredSize" pref-width="65">
-            <dropdown-list-setting id="ButtonsDropDown" text="Add Binding" formatter="FormatButton"
-                                   value="SelectedButton" options="AvailableButtons" apply-on-change="true" />
-          </horizontal>
-          <horizontal active="~CannotAddBinding" horizontal-fit="PreferredSize" pref-width="65">
-            <text text="No more buttons to add!" align="Center" italics="true" font-align="Midline" font-size="4" />
-          </horizontal>
-          <horizontal horizontal-fit="MinSize" min-width="15">
-            <button text="Add" on-click="AddBinding" interactable="~CanAddBinding" />
-          </horizontal>
-        </horizontal>
-      </vertical>
+      <macro.reparent transform="ComponentRoot" />
     </macro.as-host>
   </tab>
   <tab tags="tabs" tab-name="Restart">
     <macro.as-host host="RestartTab">
-      <vertical child-control-height="false" child-control-width="false" vertical-fit="PreferredSize" pivot-y="1"
-                spacing="2" child-align="UpperCenter">
-        <horizontal horizontal-fit="PreferredSize" spacing="2">
-          <vertical pad-right="7">
-            <text text="Current Bindings" italics="true" align="Center" font-size="5" />
-            <vertical bg="round-rect-panel" pad="2" pad-right="1" pref-width="45">
-              <custom-list id="BindingTable" data="Bindings" show-scrollbar="true" clickable-cells="false"
-                           visible-cells="5">
-                <horizontal spacing="2" pad-left="1" child-expand-width="true">
-                  <horizontal spacing="2" min-width="15" horizontal-fit="MinSize" pivot-x="0">
-                    <text text="~Button" align="MidlineLeft" italics="true" />
-                  </horizontal>
-                  <button text="Delete" on-click="DeleteBinding" />
-                </horizontal>
-              </custom-list>
-            </vertical>
-          </vertical>
-          <vertical child-control-height="false" child-expand-height="false" spacing="1.5" pref-width="50">
-            <bool-setting text="Enable" value="Enable" apply-on-change="true" />
-          </vertical>
-        </horizontal>
-        <horizontal pref-width="75" horizontal-fit="PreferredSize" spacing="1">
-          <dropdown-list-setting id="ButtonsDropDown" text="Add Binding" formatter="FormatButton"
-                                 options="AvailableButtons" value="SelectedButton" apply-on-change="true" />
-          <button text="Add" on-click="AddBinding" interactable="~CanAddBinding" />
-        </horizontal>
-      </vertical>
+      <macro.reparent transform="ComponentRoot" />
     </macro.as-host>
   </tab>
 </vertical>

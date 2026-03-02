@@ -1,23 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Reflection;
 using System.Runtime.CompilerServices;
+using BeatSaberMarkupLanguage;
 using BeatSaberMarkupLanguage.Attributes;
 using BeatSaberMarkupLanguage.Components;
 using BeatSaberMarkupLanguage.Components.Settings;
-using IPA.Logging;
+using BeatSaberMarkupLanguage.Parser;
 using KeyRemapper.Configuration;
+using UnityEngine;
 using Zenject;
+using Logger = IPA.Logging.Logger;
 
 namespace KeyRemapper.UI.BindingTabs;
 
-internal abstract class BindingTabBase : INotifyPropertyChanged
+internal abstract class BindingTabBase : MonoBehaviour, INotifyPropertyChanged
 {
+    private const string VIEW_DEFINITION = "KeyRemapper.UI.Views.BindingTab.bsml";
+    
     [Inject]
     private readonly Logger _logger = null!;
 
     [Inject]
     protected readonly PluginConfig Config = null!;
+
+    [Inject]
+    private readonly BSMLParser _parser = null!;
 
     protected abstract ActionBinding Action { get; }
 
@@ -28,6 +37,12 @@ internal abstract class BindingTabBase : INotifyPropertyChanged
 
     [UIComponent("ButtonsDropDown")]
     public DropDownListSetting ButtonsDropDown { get; set; }
+
+    [UIValue("ComponentRoot")]
+    public Transform ComponentRoot => transform;
+
+    [UIValue("ShowBlockBuiltIn")]
+    public virtual bool ShowBlockBuiltIn => false;
 
     [UIValue("Bindings")]
     public List<TableCell> Bindings { get; } = [];
@@ -52,6 +67,13 @@ internal abstract class BindingTabBase : INotifyPropertyChanged
     {
         get => Action.Enabled;
         set => Action.Enabled = value;
+    }
+
+    public BSMLParserParams CreateView(Transform parent)
+    {
+        transform.SetParent(parent, false);
+        var bsml = Utilities.GetResourceContent(Assembly.GetExecutingAssembly(), VIEW_DEFINITION);
+        return _parser.Parse(bsml, gameObject, this);
     }
 
     [UIAction("#post-parse")]

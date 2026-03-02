@@ -122,5 +122,6 @@
   <ItemGroup>
     <EmbeddedResource Include="manifest.json" />
     <EmbeddedResource Include="UI\Views\SettingsView.bsml" />
+    <EmbeddedResource Include="UI\Views\BindingTab.bsml" />
   </ItemGroup>
 </Project>
