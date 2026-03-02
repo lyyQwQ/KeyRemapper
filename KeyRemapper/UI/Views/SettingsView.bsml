@@ -10,6 +10,9 @@
           <vertical pad-right="7">
             <text text="Current Bindings" italics="true" align="Center" font-size="5" />
             <vertical bg="round-rect-panel" pad="2" pad-right="1" pref-width="45">
+              <horizontal ignore-layout="true" active="~NoBindings">
+                <text text="No bindings yet!" align="Center" italics="true" />
+              </horizontal>
               <custom-list id="BindingTable" data="Bindings" show-scrollbar="true" clickable-cells="false"
                            visible-cells="5">
                 <horizontal spacing="2" pad-left="1" child-expand-width="true">
@@ -26,10 +29,17 @@
             <bool-setting text="Block Built-in" value="BlockBuiltIn" apply-on-change="true" />
           </vertical>
         </horizontal>
-        <horizontal pref-width="75" horizontal-fit="PreferredSize" spacing="1">
-          <dropdown-list-setting id="ButtonsDropDown" text="Add Binding" formatter="FormatButton"
-                                 options="AvailableButtons" value="SelectedButton" apply-on-change="true" />
-          <button text="Add" on-click="AddBinding" interactable="~CanAddBinding" />
+        <horizontal horizontal-fit="PreferredSize">
+          <horizontal active="~CanAddBinding" horizontal-fit="PreferredSize" pref-width="65">
+            <dropdown-list-setting id="ButtonsDropDown" text="Add Binding" formatter="FormatButton"
+                                   value="SelectedButton" options="AvailableButtons" apply-on-change="true" />
+          </horizontal>
+          <horizontal active="~CannotAddBinding" horizontal-fit="PreferredSize" pref-width="65">
+            <text text="No more buttons to add!" align="Center" italics="true" font-align="Midline" font-size="4" />
+          </horizontal>
+          <horizontal horizontal-fit="MinSize" min-width="15">
+            <button text="Add" on-click="AddBinding" interactable="~CanAddBinding" />
+          </horizontal>
         </horizontal>
       </vertical>
     </macro.as-host>

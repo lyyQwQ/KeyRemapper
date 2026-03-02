@@ -38,6 +38,12 @@ internal abstract class BindingTabBase : INotifyPropertyChanged
     [UIValue("CanAddBinding")]
     public bool CanAddBinding => AvailableButtons.Count > 0;
 
+    [UIValue("CannotAddBinding")]
+    public bool CannotAddBinding => AvailableButtons.Count == 0;
+
+    [UIValue("NoBindings")]
+    public bool NoBindings => Action.Bindings.Count == 0;
+
     [UIValue("SelectedButton")]
     public ControllerButton SelectedButton { get; set; } = ControllerButton.L_X;
 
@@ -49,7 +55,7 @@ internal abstract class BindingTabBase : INotifyPropertyChanged
     }
 
     [UIAction("#post-parse")]
-    public virtual void OnParsed()
+    protected virtual void OnParsed()
     {
         _logger.Trace("Parsed");
         Parsed = true;
@@ -102,6 +108,8 @@ internal abstract class BindingTabBase : INotifyPropertyChanged
             ButtonsDropDown.ReceiveValue();
             ButtonsDropDown.Interactable = CanAddBinding;
             NotifyPropertyChanged(nameof(CanAddBinding));
+            NotifyPropertyChanged(nameof(CannotAddBinding));
+            NotifyPropertyChanged(nameof(NoBindings));
         }
     }
 
