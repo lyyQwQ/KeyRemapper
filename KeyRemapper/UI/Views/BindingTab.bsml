@@ -5,13 +5,13 @@
     <vertical pad-right="7">
       <text text-key="KEYREMAPPER_SETTING_BINDING_TAB_BINDING_LIST_HEADER" italics="true" align="Center"
             font-size="5" />
-      <vertical bg="round-rect-panel" pad="2" pad-right="1" pref-width="45">
+      <vertical bg="round-rect-panel" pad="2" pad-right="1" pref-width="52">
         <horizontal ignore-layout="true" active="~NoBindings">
           <text text-key="KEYREMAPPER_SETTING_BINDING_TAB_BINDING_LIST_EMPTY_TEXT" align="Center" italics="true" />
         </horizontal>
         <custom-list id="BindingTable" data="Bindings" show-scrollbar="true" clickable-cells="false" visible-cells="5">
-          <horizontal spacing="2" pad-left="1" child-expand-width="true">
-            <horizontal spacing="2" min-width="15" horizontal-fit="MinSize" pivot-x="0">
+          <horizontal pad-left="1" child-expand-width="true">
+            <horizontal spacing="2" min-width="22" horizontal-fit="MinSize" pivot-x="0">
               <text text="~Button" align="MidlineLeft" italics="true" />
             </horizontal>
             <button text-key="KEYREMAPPER_SETTING_BINDING_TAB_BINDING_LIST_REMOVE_BINDING" on-click="DeleteBinding" />

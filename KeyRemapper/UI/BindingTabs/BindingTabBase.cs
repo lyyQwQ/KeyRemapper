@@ -8,6 +8,7 @@ using BeatSaberMarkupLanguage.Attributes;
 using BeatSaberMarkupLanguage.Components;
 using BeatSaberMarkupLanguage.Components.Settings;
 using BeatSaberMarkupLanguage.Parser;
+using BGLib.Polyglot;
 using KeyRemapper.Configuration;
 using UnityEngine;
 using Zenject;
@@ -137,18 +138,18 @@ internal abstract class BindingTabBase : MonoBehaviour, INotifyPropertyChanged
 
     public string FormatButton(ControllerButton button) => button switch
     {
-        ControllerButton.L_X => "Left A/X",
-        ControllerButton.L_Y => "Left B/Y",
-        ControllerButton.R_A => "Right A/X",
-        ControllerButton.R_B => "Right B/Y",
-        ControllerButton.L_Grip => "Left Grip",
-        ControllerButton.R_Grip => "Right Grip",
-        ControllerButton.L_Trigger => "Left Trigger",
-        ControllerButton.R_Trigger => "Right Trigger",
-        ControllerButton.L_Stick => "Left Joystick",
-        ControllerButton.R_Stick => "Right Joystick",
-        ControllerButton.L_Menu => "Left Menu",
-        ControllerButton.R_Menu => "Right Menu",
+        ControllerButton.L_X => Localization.Get("KEYREMAPPER_CONTROLLER_BUTTON_L_X"),
+        ControllerButton.L_Y => Localization.Get("KEYREMAPPER_CONTROLLER_BUTTON_L_Y"),
+        ControllerButton.R_A => Localization.Get("KEYREMAPPER_CONTROLLER_BUTTON_R_A"),
+        ControllerButton.R_B => Localization.Get("KEYREMAPPER_CONTROLLER_BUTTON_R_B"),
+        ControllerButton.L_Grip => Localization.Get("KEYREMAPPER_CONTROLLER_BUTTON_L_GRIP"),
+        ControllerButton.R_Grip => Localization.Get("KEYREMAPPER_CONTROLLER_BUTTON_R_GRIP"),
+        ControllerButton.L_Trigger => Localization.Get("KEYREMAPPER_CONTROLLER_BUTTON_L_TRIGGER"),
+        ControllerButton.R_Trigger => Localization.Get("KEYREMAPPER_CONTROLLER_BUTTON_R_TRIGGER"),
+        ControllerButton.L_Stick => Localization.Get("KEYREMAPPER_CONTROLLER_BUTTON_L_STICK"),
+        ControllerButton.R_Stick => Localization.Get("KEYREMAPPER_CONTROLLER_BUTTON_R_STICK"),
+        ControllerButton.L_Menu => Localization.Get("KEYREMAPPER_CONTROLLER_BUTTON_L_MENU"),
+        ControllerButton.R_Menu => Localization.Get("KEYREMAPPER_CONTROLLER_BUTTON_R_MENU"),
         _ => button.ToString()
     };
 
