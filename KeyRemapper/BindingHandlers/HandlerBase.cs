@@ -9,9 +9,6 @@ namespace KeyRemapper.BindingHandlers;
 internal abstract class HandlerBase : IInitializable, IDisposable
 {
     [Inject]
-    private readonly SiraLog _logger = null!;
-
-    [Inject]
     private readonly IInputManager _inputManager = null!;
 
     protected abstract ActionBinding BindingConfig { get; }

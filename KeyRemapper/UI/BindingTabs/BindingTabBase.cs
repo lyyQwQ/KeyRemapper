@@ -34,10 +34,10 @@ internal abstract class BindingTabBase : MonoBehaviour, INotifyPropertyChanged
     protected bool Parsed { get; private set; }
 
     [UIComponent("BindingTable")]
-    public CustomCellListTableData BindingTable { get; set; }
+    public CustomCellListTableData BindingTable { get; set; } = null!;
 
     [UIComponent("ButtonsDropDown")]
-    public DropDownListSetting ButtonsDropDown { get; set; }
+    public DropDownListSetting ButtonsDropDown { get; set; } = null!;
 
     [UIValue("ComponentRoot")]
     public Transform ComponentRoot => transform;

@@ -16,7 +16,7 @@
     <DebugType>portable</DebugType>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-<!--    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>-->
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <EnableFrameworkPathOverride>true</EnableFrameworkPathOverride>
     <FrameworkPathOverride>$(BeatSaberDir)\Beat Saber_Data\Managed</FrameworkPathOverride>
     <MarkPackageReferencesAsExternallyResolved>false</MarkPackageReferencesAsExternallyResolved>
