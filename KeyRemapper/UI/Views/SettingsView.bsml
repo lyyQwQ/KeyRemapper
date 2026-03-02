@@ -2,12 +2,12 @@
           xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
           xsi:noNamespaceSchemaLocation='https://monkeymanboy.github.io/BSML-Docs/BSMLSchema.xsd'>
   <tab-selector tab-tag='tabs' />
-  <tab tags="tabs" tab-name="Pause">
+  <tab tags="tabs" tab-name-key="KEYREMAPPER_SETTING_ACTION_PAUSE">
     <macro.as-host host="PauseTab">
       <macro.reparent transform="ComponentRoot" />
     </macro.as-host>
   </tab>
-  <tab tags="tabs" tab-name="Restart">
+  <tab tags="tabs" tab-name-key="KEYREMAPPER_SETTING_ACTION_RESTART">
     <macro.as-host host="RestartTab">
       <macro.reparent transform="ComponentRoot" />
     </macro.as-host>

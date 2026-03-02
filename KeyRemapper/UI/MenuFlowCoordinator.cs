@@ -1,4 +1,5 @@
 ﻿using BeatSaberMarkupLanguage.MenuButtons;
+using BGLib.Polyglot;
 using HMUI;
 using IPA.Logging;
 using Zenject;
@@ -21,10 +22,8 @@ internal class MenuFlowCoordinator : FlowCoordinator
 
     private readonly MenuButton _menuButton;
 
-    public MenuFlowCoordinator()
-    {
-        _menuButton = new MenuButton("Key Remapper", "Configure controller bindings", OnMenuButtonClick);
-    }
+    public MenuFlowCoordinator() => _menuButton = new MenuButton(Localization.Get("KEYREMAPPER_TITTLE"),
+        Localization.Get("KEYREMAPPER_MENU_BUTTON_HINT"), OnMenuButtonClick);
 
     private void Start()
     {
@@ -36,7 +35,7 @@ internal class MenuFlowCoordinator : FlowCoordinator
     {
         if (firstActivation)
         {
-            SetTitle("Key Remapper");
+            SetTitle(Localization.Get("KEYREMAPPER_TITTLE"));
             showBackButton = true;
             ProvideInitialViewControllers(_view);
         }
