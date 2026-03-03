@@ -1,8 +1,9 @@
-﻿using IPA;
+﻿using HarmonyLib;
+using IPA;
+using KeyRemapper.Configuration;
+using KeyRemapper.Installers;
 using SiraUtil.Zenject;
 using IPALogger = IPA.Logging.Logger;
-using KeyRemapper.Installers;
-using KeyRemapper.Configuration;
 
 namespace KeyRemapper
 {
@@ -12,18 +13,19 @@ namespace KeyRemapper
     {
         internal static IPALogger Log { get; private set; } = null!;
 
+        private readonly Harmony _harmony = new("com.github.lyyQwQ.KeyRemapper");
+
         [Init]
         public Plugin(IPALogger logger, IPA.Config.Config conf, Zenjector zenjector)
         {
             Log = logger;
-            // 生成或加载 cfg → 存到静态 Instance
-            PluginConfig.Initialize(conf);
+            var config = PluginConfig.Initialize(conf);
             logger.Debug("Config loaded.");
-            zenjector.Install<AppInstaller>(Location.App, PluginConfig.Instance);
+            zenjector.Install<AppInstaller>(Location.App, config);
             zenjector.Install<GameplayInstaller>(Location.Player);
-            // 先不显示界面
             zenjector.Install<MenuBindingsInstaller>(Location.Menu);
             zenjector.UseLogger(logger);
+            _harmony.PatchAll();
             Log.Info("KeyRemapper initialized.");
         }
     }

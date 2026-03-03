@@ -9,7 +9,11 @@ namespace KeyRemapper.InputManagers;
 /// </summary>
 internal class DummyInputManager : IInputManager
 {
-    public event Action<ControllerButton>? ButtonPressed;
+    public event Action<ControllerButton>? ButtonPressed
+    {
+        add { }
+        remove { }
+    }
 
     public bool IsButtonPressedRightNow(ControllerButton button) => false;
 
