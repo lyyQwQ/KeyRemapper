@@ -24,7 +24,7 @@ A **Beat Saber** mod that lets you remap almost any controller button.
 | `L_Grip` / `R_Grip`          | Grip                 | `gripButton`         | L / R |
 | `L_Trigger` / `R_Trigger`    | Trigger (click)      | `triggerButton`      | L / R |
 | `L_Stick` / `R_Stick`        | Thumb‑stick click    | `primary2DAxisClick` | L / R |
-| `L_Menu` / `R_Menu` / `Menu` | Menu button          | `menuButton`         | L / R |
+| `L_Menu` / `R_Menu`          | Menu button          | `menuButton`         | L / R |
 
 > **Heads‑up – Triggers**  
 > Triggers also act as **click** inside the pause menu, so binding `L_Trigger`/`R_Trigger` to *Pause* can make the
@@ -46,58 +46,20 @@ A **Beat Saber** mod that lets you remap almost any controller button.
 1. Install the required mods
 2. Download the latest from the [Releases](https://github.com/lyyQwQ/KeyRemapper/releases) page.
 3. Unzip the archive into your Beat Saber folder.
+4. Launch the game and open **Mods -> KeyRemapper** to configure your bindings.
 
 ---
 
 ## Configuration
 
-### In-Game Settings (New in v0.2.0)
-
-You can now configure button mappings directly in-game:
-1. Go to **Mods** menu in the main menu
+Configure button mappings directly in-game:
+1. Go to the **Mods** menu in the main menu
 2. Select **KeyRemapper**
-3. Use the dropdown menus to add/modify button bindings
-4. Changes are saved automatically and take effect immediately
+3. Use the dropdown menus to add or remove button bindings
+4. Toggle Pause / Restart behavior as needed
+5. Changes are saved automatically and take effect immediately
 
-### Manual Configuration (Advanced)
-
-On first launch the mod creates  
-`UserData/KeyRemapper.json`. A minimal file looks like:
-
-```jsonc
-{
-  "Version": 2,
-  "Actions": {
-    "Pause": {
-      "Bindings": [],          // Your custom buttons
-      "BlockBuiltIn": false
-    },
-    "Restart": {
-      "Bindings": []
-    }
-  }
-}
-```
-
-### Example (author’s own setup)
-
-```jsonc
-{
-  "Version": 2,
-  "Actions": {
-    "Pause": {
-      "Bindings": ["L_X", "L_Y", "R_A", "R_B"],
-      "BlockBuiltIn": false
-    },
-    "Restart": {
-      "Bindings": []
-    }
-  }
-}
-```
-
-* Edit the file, add any **Token** from the table above into `Bindings`, save
-* Empty array `[]` means “not set”.
+Settings are stored automatically in `UserData/KeyRemapper.json`.
 
 ---
 

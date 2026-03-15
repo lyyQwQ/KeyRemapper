@@ -24,7 +24,7 @@
 | `L_Grip` / `R_Grip`          | 抓握键           | `gripButton`           | 左 / 右 |
 | `L_Trigger` / `R_Trigger`    | 扳机二段          | `triggerButton`        | 左 / 右 |
 | `L_Stick` / `R_Stick`        | 摇杆按下          | `primary2DAxisClick`   | 左 / 右 |
-| `L_Menu` / `R_Menu` / `Menu` | 菜单键           | `menuButton`           | 左 / 右 |
+| `L_Menu` / `R_Menu`          | 菜单键           | `menuButton`           | 左 / 右 |
 
 > **小贴士 ② – 关于扳机键**  
 > 扳机（Trigger）在暂停菜单里同样会触发 **Continue** 按钮，  
@@ -46,60 +46,20 @@
 1. 安装依赖
 2. 从 [Releases](https://github.com/lyyQwQ/KeyRemapper/releases) 下载最新版
 3. 将压缩文件解压进 Beat Saber 文件夹
+4. 启动游戏后进入 **Mods -> KeyRemapper** 配置按键
 
 ---
 
 ## 配置
 
-### 游戏内设置（v0.2.0 新增）
-
 现在可以直接在游戏内配置按键映射：
 1. 进入主菜单的 **Mods** 菜单
 2. 选择 **KeyRemapper**
-3. 使用下拉菜单添加/修改按键绑定
-4. 更改会自动保存并立即生效
+3. 使用下拉菜单添加或删除按键绑定
+4. 按需切换 Pause / Restart 的行为
+5. 更改会自动保存并立即生效
 
-### 手动配置（高级）
-
-插件首次运行后将在  
-`UserData/KeyRemapper.json` 生成如下结构（**空数组 `[]` = 不设置**）：
-
-```jsonc
-{
-  "Version": 2,
-  "Actions": {
-    "Pause": {
-      "Bindings": [],          // 自定义按键
-      "BlockBuiltIn": false
-    },
-    "Restart": {
-      "Bindings": []
-    }
-  }
-}
-```
-
-### 示例（作者自用）
-
-```jsonc
-{
-  "Version": 2,
-  "Actions": {
-    "Pause": {
-      "Bindings": ["L_X", "L_Y", "R_A", "R_B"],
-      "BlockBuiltIn": false
-    },
-    "Restart": {
-      "Bindings": []
-    }
-  }
-}
-```
-
-> **修改方法**
-> 1. 打开 `KeyRemapper.json`
-> 2. 在 `Bindings` 数组里填入上表中的 **Token 字符串**
-> 3. 保存文件
+设置会自动保存到 `UserData/KeyRemapper.json`。
 
 ---
 
