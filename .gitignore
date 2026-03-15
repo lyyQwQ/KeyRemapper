@@ -400,6 +400,8 @@ FodyWeavers.xsd
 
 # Claude Code
 CLAUDE.md
+.claude/
+AGENTS.md
 
 # Cursor
 .cursor/
@@ -409,6 +411,8 @@ CLAUDE.md
 
 # Archive folder
 archive/
+.bak/
+.tasks/
 
 # Documentation folders
 docs/

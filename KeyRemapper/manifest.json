@@ -3,7 +3,7 @@
   "id": "KeyRemapper",
   "name": "KeyRemapper",
   "author": "Estrella",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "",
   "gameVersion": "1.39.1",
   "dependsOn": {
